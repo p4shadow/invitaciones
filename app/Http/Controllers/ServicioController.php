@@ -4,56 +4,88 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $servicios = Servicio::all();
+        return view('servicio.index', compact('servicios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $clientes = Cliente::all(); // Obtén todos los clientes
+    
+        return view('servicio.create', compact('clientes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+ 
     public function store(Request $request)
+{
+    // Validación de datos
+    $request->validate([
+        'id_cliente' => 'required',
+        'tipo' => 'required',
+        'detalle' => 'required',
+        'cant_invitados' => 'required|numeric',
+        'comida' => 'required',
+        'bebida' => 'required',
+        'dj' => 'required',
+        'fecha' => 'required|date',
+        'animador' => 'required',
+    ]);
+    // Crear una nueva instancia de Servicio y asignar los valores del formulario
+    $servicio = new Servicio();
+    $servicio->id_cliente = $request->input('id_cliente');
+    $servicio->tipo = $request->input('tipo');
+    $servicio->detalle = $request->input('detalle');
+    $servicio->cant_invitados = $request->input('cant_invitados');
+    $servicio->comida = $request->input('comida');
+    $servicio->bebida = $request->input('bebida');
+    $servicio->dj = $request->input('dj');
+    $servicio->fecha = $request->input('fecha');
+    $servicio->animador = $request->input('animador');
+// Otros campos...
+
+    // Guardar el nuevo servicio en la base de datos
+    $servicio->save();
+
+    // Redireccionar a la vista de index o a donde prefieras
+    return redirect()->route('servicio.index')->with('success', 'Servicio creado exitosamente.');
+}
+    
+  
+    
+public function show($id)
+{
+    $servicio = Servicio::with('cliente')->find($id);
+
+    return view('servicio.show', compact('servicio'));
+}
+
+    public function edit($id)
     {
-        //
+   
+        $servicio = Servicio::find($id);
+        $clientes = Cliente::all();
+
+        return view('servicio.edit', compact('servicio', 'clientes'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Servicio $servicio)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            // Agrega las reglas de validación según tus necesidades
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Servicio $servicio)
-    {
-        //
-    }
+        $servicio = Servicio::find($id);
+        $servicio->fill($request->all());
+        $servicio->save();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Servicio $servicio)
-    {
-        //
+        return redirect()->route('servicio.index')->with('success', 'Servicio actualizado correctamente');
     }
 
     /**

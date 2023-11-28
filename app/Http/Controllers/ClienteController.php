@@ -13,48 +13,67 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+        return view('cliente.index', compact('clientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
+{
+    return view('cliente.create');
+}
+
+public function store(Request $request)
+{
+    // Validación de datos
+    $request->validate([
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'tel' => 'required',
+        'direccion' => 'required',
+        'dni' => 'required',
+        'otro' => 'required',
+        // Agrega validaciones para los demás campos aquí
+    ]);
+
+    // Crear el cliente
+    Cliente::create($request->all());
+
+    // Redireccionar a la lista de clientes o a donde lo desees
+    return redirect()->route('cliente.index')->with('success', 'Cliente creado exitosamente.');
+}
+
+public function show($id)
     {
-        //
+    $cliente = Cliente::find($id);
+
+    return view('cliente.show', ['cliente' => $cliente]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function edit($id)
+{
+    $cliente = Cliente::findOrFail($id);
+    return view('cliente.edit', compact('cliente'));
+}
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cliente $cliente)
-    {
-        //
-    }
+public function update(Request $request, $id)
+{
+    $cliente = Cliente::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cliente $cliente)
-    {
-        //
-    }
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'apellido' => 'required|string|max:255',
+        'tel' => 'required|string|max:20',
+        'direccion' => 'required|string|max:255',
+        'dni' => 'required|string|max:20',
+        'otro' => 'nullable|string|max:255',
+    ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cliente $cliente)
-    {
-        //
-    }
+    $cliente->update($request->all());
+
+    return redirect()->route('cliente.index')->with('success', 'Cliente actualizado exitosamente');
+}
+
+   
 
     /**
      * Remove the specified resource from storage.

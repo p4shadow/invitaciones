@@ -1,3 +1,270 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+h1 {
+    color: #3498db; /* Color del texto, puedes cambiarlo según tus preferencias */
+    font-size: 36px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+
+
+h2 {
+    color: #3498db; /* Color del texto, puedes cambiarlo según tus preferencias */
+    font-size: 36px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+
+h3 {
+    color: rgb(1, 145, 247); /* Color del texto, puedes cambiarlo según tus preferencias */
+    font-size: 24px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    margin-bottom: 15px; /* Margen inferior para separar del contenido siguiente */
+    animation: moveUp 0.5s ease-in-out infinite alternate; /* Animación de movimiento */
+}
+
+h4 {
+    color: #db3434; /* Color del texto, puedes cambiarlo según tus preferencias */
+    font-size: 24px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-weight: bold; /* Peso de la fuente (negrita) */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px); /* Puedes ajustar la distancia del movimiento aquí */
+    }
+}
+
+p {
+    text-align: center;
+}
+
+h5 {
+    color: #555; /* Color del texto normal */
+    font-size: 20px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto al centro */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    margin-bottom: 10px; /* Margen inferior para separar del contenido siguiente */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color al pasar el mouse */
+}
+
+h5:hover {
+    color: #3498db; /* Nuevo color al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es interactivo */
+}
+
+td, th {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilo para resaltar toda la fila al pasar el ratón */
+tr:hover {
+    background-color: rgb(100, 208, 255); /* Cambia el color de fondo al pasar el ratón */
+    transition: background-color 0.5s ease; /* Agrega una transición suave */
+}
+
+.button1 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4CAF50; /* Color verde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Cambio de color y sombra al pasar el ratón */
+.button:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra ligeramente más pronunciada */
+}
+
+.button2 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #864caf; /* Color verde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cambio de color y sombra al pasar el ratón */
+.button2:hover {
+    background-color: #864caf; /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra ligeramente más pronunciada */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button3 {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #bb0000; /* Color verde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    margin: auto;
+}
+
+/* Cambio de color y sombra al pasar el ratón */
+.button3:hover {
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    background-color: rgb(175, 76, 76); /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra ligeramente más pronunciada */
+}
+
+.button4 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #f904dc; /* Color verde */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Cambio de color y sombra al pasar el ratón */
+.button4:hover {
+    background-color: #a0458c; /* Cambia el color de fondo al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra ligeramente más pronunciada */
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    max-width: 200px;
+}
+
+.table-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo adicional para la tabla, si es necesario */
+.table {
+    /* Agrega cualquier estilo adicional que desees */
+    border-collapse: collapse; /* Esto es opcional y puede depender de tus necesidades específicas */
+    width: 100%; /* Ancho de la tabla, ajusta según sea necesario */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para los elementos de la lista */
+ul li {
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de transición al pasar el mouse sobre los elementos */
+ul li:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Color de fondo */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin: auto; /* Centra el formulario verticalmente */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: calc(100% - 20px); /* Ajuste para compensar el padding */
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
